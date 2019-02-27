@@ -33,15 +33,6 @@ void grid::gridFormation(int getX, int getY) {
 
     gridArrayFunc(getX, getY);
 
-    /*
-
-    for (int i = 0; i < sizeX; i++) {
-        delete[] gridArray[i];
-    }
-    delete[] gridArray;
-    gridArray = nullptr;
-    */
-
     //cout << "Assigning Array 0's" << endl;
     for (int i = 0; i < sizeX; i++){
         for (int j = 0; j < sizeY; j++){
@@ -90,12 +81,15 @@ void grid::compareGrids(int **array, int **array2) {
         }
     }
     // print comprarison grid
-    cout << "Compared Arrays: " << endl;
     for (int i = 0; i < userX; i++){
         for (int j = 0; j < userY; j++){
             cout << compArray[i][j];
         }
         cout << endl;
+    }
+    if (compArray != nullptr){
+        delete[] compArray;
+        compArray = nullptr;
     }
 
 }
@@ -116,8 +110,10 @@ int** grid::getArray() {
 
 
 void grid::deleteGrids(){
-    delete[] gridArray;
-    delete[] compArray;
+    if (gridArray != nullptr) {
+        delete[] gridArray;
+        gridArray = nullptr;
+    }
 }
 
 
