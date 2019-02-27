@@ -18,11 +18,18 @@ int main() {
     // data input
     userGridA.getXY(userX, userY);
     userGridB.getXY(userX, userY);
-    // printing and assigning
+
+    // printing and assigning grids
+    cout << "Grid 1:" << endl;
     userGridA.gridFormation(userGridA.getX(),userGridA.getY());
+    cout << "Grid 2: "<< endl;
     userGridB.gridFormation(userGridB.getX(),userGridB.getY());
 
+    // printing comparison grid
+    cout << "Grid 3/Comparison Grid: " << endl;
     userGridA.compareGrids(userGridA.getArray(),userGridB.getArray());
+
+    // Delete grids
     userGridA.deleteGrids();
     userGridB.deleteGrids();
 
